@@ -1,12 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game</title>
+<title>Important Question</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:linear-gradient(#ff9a9e,#fad0c4);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+button{
+padding:15px 30px;
+margin:10px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#rose{
+display:none;
+font-size:80px;
+animation:bloom 2s forwards;
+}
+
+@keyframes bloom{
+0%{transform:scale(0)}
+100%{transform:scale(1)}
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to My Game!</h1>
-    <p>Game description goes here.</p>
+
+<h1 id="title">Do you love Jeremy?</h1>
+
+<div id="buttons">
+<button onclick="step2()">Yes ❤️</button>
+<button onclick="step2()">Yes but more 😌</button>
+<button onclick="step2()">Absolutely 😤</button>
+</div>
+
+<div id="step2" style="display:none;">
+<h1>Good.</h1>
+<p>Because I love you more.</p>
+<button onclick="step3()">One more thing...</button>
+</div>
+
+<div id="step3" style="display:none;">
+<div id="rose">🌹</div>
+<p>Some flowers last a week.</p>
+<p>My love for you grows every day.</p>
+<p>I'm lucky to have you.</p>
+</div>
+
+<script>
+function step2(){
+document.getElementById("title").style.display="none";
+document.getElementById("buttons").style.display="none";
+document.getElementById("step2").style.display="block";
+}
+
+function step3(){
+document.getElementById("step2").style.display="none";
+document.getElementById("step3").style.display="block";
+document.getElementById("rose").style.display="block";
+}
+</script>
+
 </body>
 </html>
